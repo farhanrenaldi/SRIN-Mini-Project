@@ -1,0 +1,16 @@
+# Development image for the Spring Boot backend with live reload.
+# Source, the Maven wrapper and the entrypoint are provided at runtime via a
+# bind mount (see docker-compose.yml), so the image itself stays minimal.
+# Dependencies and the Maven distribution are cached in the `maven_repo`
+# named volume after the first startup.
+FROM eclipse-temurin:26-jdk
+
+WORKDIR /app
+
+# Unbuffered, colored Spring output in `docker compose` logs.
+ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
+
+# API port (also acts as documentation; publishing happens in compose).
+EXPOSE 9999
+
+ENTRYPOINT ["sh", "./docker-dev-entrypoint.sh"]

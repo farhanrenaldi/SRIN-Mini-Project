@@ -1,0 +1,16 @@
+# Environment
+.env
+.mvn/
+.vscode/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Backend build output
+backend/target/
+
+# Frontend build output & deps
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
